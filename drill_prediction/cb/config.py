@@ -1,10 +1,13 @@
 import os
 
-DATA_DIR    = r"C:/Users/User/Desktop/analyse/dataset/56-32_Pason_Archive"
-OUTPUT_DIR  = r"C:/Users/User/Desktop/analyse/output"
-PARQUET_FILE = os.path.join(OUTPUT_DIR, "drilling_labeled.parquet")
-os.makedirs(OUTPUT_DIR, exist_ok=True)
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+DATA_DIR = os.path.join(BASE_DIR, "data")
+OUTPUT_DIR = os.path.join(BASE_DIR, "output")
+
+PARQUET_FILE = os.path.join(OUTPUT_DIR, "drilling_labeled.parquet")
+
+os.makedirs(OUTPUT_DIR, exist_ok=True)
 LABEL = {
     "pvt_threshold": 15.0,   # барр — порог PVT Gain/Loss
     "pump_min": 50.0,   # gal/min — признак работы насосов
